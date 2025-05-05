@@ -10,11 +10,29 @@ import java.util.List;
 
 @Service
 public class LibroService {
+
     @Autowired
     private LibroRepository libroRepository;
 
     public List<Libro> getLibros() {
-        return LibroRepository.obtenerLibros();
+        return libroRepository.obtenerLibros();
+    }
+
+    public Libro saveLibro(Libro libro) {
+        return libroRepository.guardar(libro);
+    }
+
+    public Libro getLibroId(int id) {
+        return libroRepository.buscarPorId(id);
+    }
+
+    public Libro updateLibro(Libro libro) {
+        return libroRepository.actualizar(libro);
+    }
+
+    public String deleteLibro(int id) {
+        libroRepository.eliminar(id);
+        return "Producto eliminado" ;
     }
 
 }
